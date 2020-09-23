@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package com.mycompany.proyectohotel;
+import java.util.Vector;
+import java.util.Iterator;
 
 /**
  *
@@ -13,9 +15,12 @@ public class Cliente extends javax.swing.JFrame {
 
     /**
      * Creates new form cliente
-     */
-    public Cliente() {
+     */Vector <ClaseCliente>ArregloCliente;
+
+    public Cliente(Vector <ClaseCliente>a) 
+    {
         initComponents();
+        ArregloCliente=a;
     }
 
     /**
@@ -49,12 +54,15 @@ public class Cliente extends javax.swing.JFrame {
         tfCorreoElectronico = new javax.swing.JTextField();
         jRadioButtonHobre = new javax.swing.JRadioButton();
         jRadioButtonMujer = new javax.swing.JRadioButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
+        jButtonVer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setText("Registro de cliente");
 
-        jLabel2.setText("nombres");
+        jLabel2.setText("Nombres");
 
         jLabel3.setText("Apellidos");
 
@@ -66,6 +74,7 @@ public class Cliente extends javax.swing.JFrame {
 
         jLabel7.setText("Correo Electronico");
 
+        tfNobre.setName(""); // NOI18N
         tfNobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tfNobreActionPerformed(evt);
@@ -79,6 +88,11 @@ public class Cliente extends javax.swing.JFrame {
         });
 
         jButtonGuardar.setText("Guardar");
+        jButtonGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonGuardarActionPerformed(evt);
+            }
+        });
 
         Cancelar.setText("Cancelar");
         Cancelar.addActionListener(new java.awt.event.ActionListener() {
@@ -101,6 +115,17 @@ public class Cliente extends javax.swing.JFrame {
         });
 
         jRadioButtonMujer.setText("Mujer");
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jScrollPane1.setViewportView(jTextArea1);
+
+        jButtonVer.setText("Ver Registros");
+        jButtonVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -136,23 +161,28 @@ public class Cliente extends javax.swing.JFrame {
                                 .addComponent(rfApellido)))
                         .addGap(56, 56, 56)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jRadioButtonHobre)
-                                .addGap(17, 17, 17))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel10)
-                                .addComponent(jLabel7)
-                                .addComponent(jLabel6)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jRadioButtonMujer)
-                            .addComponent(tfTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
-                            .addComponent(tfCorreoElectronico)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(jRadioButtonHobre)
+                                        .addGap(17, 17, 17))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel10)
+                                        .addComponent(jLabel7)
+                                        .addComponent(jLabel6)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jRadioButtonMujer)
+                                    .addComponent(tfTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                                    .addComponent(tfCorreoElectronico)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(180, 180, 180)
                         .addComponent(jButtonGuardar)
-                        .addGap(194, 194, 194)
+                        .addGap(65, 65, 65)
+                        .addComponent(jButtonVer)
+                        .addGap(56, 56, 56)
                         .addComponent(Cancelar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(36, 36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -187,14 +217,17 @@ public class Cliente extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jLabel4)
                                     .addComponent(tfNit, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 119, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                                     .addComponent(jRadioButtonHobre)
                                     .addComponent(jRadioButtonMujer))
-                                .addGap(0, 95, Short.MAX_VALUE))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                        .addGap(43, 43, 43))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -210,11 +243,12 @@ public class Cliente extends javax.swing.JFrame {
                                         .addComponent(rfDpi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                                 .addGap(18, 18, 18)
                                 .addComponent(tfDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jLabel8))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                            .addComponent(jLabel8))
+                        .addGap(136, 136, 136)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonGuardar)
-                    .addComponent(Cancelar))
+                    .addComponent(Cancelar)
+                    .addComponent(jButtonVer))
                 .addGap(33, 33, 33))
         );
 
@@ -237,45 +271,53 @@ public class Cliente extends javax.swing.JFrame {
 dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_CancelarActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Cliente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
+    private void jButtonGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonGuardarActionPerformed
+      if(evt.getSource()==jButtonGuardar)
+      {
+      ClaseCliente cli= new ClaseCliente();
+      cli.setNonbre(tfNobre.getText());
+      cli.setApellido(rfApellido.getText());
+      cli.setNit(tfNit.getText());
+      cli.setDPI(rfDpi.getText());
+      cli.setEdad(tfEdad.getText());
+      cli.setDireccion(tfDireccion.getText());
+      cli.setTelefono(tfTelefono.getText());
+      cli.setCorreo(tfCorreoElectronico.getText());
+      ArregloCliente.add(cli);
+      tfNobre.setText("");
+      rfApellido.setText("");
+      tfNit.setText("");
+      rfDpi.setText("");
+      tfEdad.setText("");
+      tfDireccion.setText("");
+      tfTelefono.setText("");
+      tfCorreoElectronico.setText("");
+      }
+    }//GEN-LAST:event_jButtonGuardarActionPerformed
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Cliente().setVisible(true);
+    private void jButtonVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerActionPerformed
+
+        jTextArea1.setText("");
+        if(evt.getSource()==jButtonVer)
+        {
+            ClaseCliente c2;
+            Iterator<ClaseCliente>itr=ArregloCliente.iterator();
+            while(itr.hasNext())
+            {
+                c2=itr.next();
+                jTextArea1.append(c2.getNombre()+" "+c2.getApellido()+" "+c2.getNit()+" "+c2.getDpi()+" "+c2.getEdad()+" "+c2.getDireccion()+" "+c2.getTelefono()+" "+c2.getCorreo()+"\n");
             }
-        });
-    }
+        }
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonVerActionPerformed
+
+    
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancelar;
     private javax.swing.JButton jButtonGuardar;
+    private javax.swing.JButton jButtonVer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -288,6 +330,8 @@ dispose();        // TODO add your handling code here:
     private javax.swing.JLabel jLabel9;
     private javax.swing.JRadioButton jRadioButtonHobre;
     private javax.swing.JRadioButton jRadioButtonMujer;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField rfApellido;
     private javax.swing.JTextField rfDpi;
     private javax.swing.JTextField tfCorreoElectronico;

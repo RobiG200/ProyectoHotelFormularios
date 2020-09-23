@@ -4,18 +4,22 @@
  * and open the template in the editor.
  */
 package com.mycompany.proyectohotel;
+import java.util.Vector;
 
 /**
  *
  * @author Robin Mita
  */
 public class Inicio extends javax.swing.JFrame {
+ Vector <ClaseCliente> ArregloCliente=new Vector<>();
 
     /**
      * Creates new form Inicio
      */
     public Inicio() {
+        ArregloCliente=new  Vector<ClaseCliente>();
         initComponents();
+
     }
 
     /**
@@ -136,7 +140,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_RegistroEmpleadoActionPerformed
 
     private void RegistroClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroClienteActionPerformed
-      Cliente Cliente1= new Cliente();
+      Cliente Cliente1= new Cliente(ArregloCliente);
         Cliente1.setVisible(true);
     }//GEN-LAST:event_RegistroClienteActionPerformed
 

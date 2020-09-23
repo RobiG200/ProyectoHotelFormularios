@@ -57,6 +57,7 @@ public class Cliente extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jButtonVer = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -127,6 +128,13 @@ public class Cliente extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Buscar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -139,18 +147,6 @@ public class Cliente extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5)
-                                    .addComponent(jLabel9)
-                                    .addComponent(jLabel8))
-                                .addGap(17, 17, 17)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(tfNit)
-                                    .addComponent(rfDpi)
-                                    .addComponent(tfEdad)
-                                    .addComponent(tfDireccion)))
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel2)
                                 .addGap(18, 18, 18)
@@ -158,8 +154,25 @@ public class Cliente extends javax.swing.JFrame {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
-                                .addComponent(rfApellido)))
-                        .addGap(56, 56, 56)
+                                .addComponent(rfApellido))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel9)
+                                    .addComponent(jLabel8))
+                                .addGap(17, 17, 17)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(tfNit, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(rfDpi, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(tfEdad, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(tfDireccion, javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButtonGuardar)
+                                        .addGap(26, 26, 26)
+                                        .addComponent(jButtonVer)
+                                        .addGap(0, 0, Short.MAX_VALUE)))))
+                        .addGap(30, 30, 30)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,11 +189,9 @@ public class Cliente extends javax.swing.JFrame {
                                     .addComponent(tfCorreoElectronico)))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 359, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(jButtonGuardar)
-                        .addGap(65, 65, 65)
-                        .addComponent(jButtonVer)
-                        .addGap(56, 56, 56)
+                        .addGap(345, 345, 345)
+                        .addComponent(jButton1)
+                        .addGap(51, 51, 51)
                         .addComponent(Cancelar)))
                 .addGap(36, 36, Short.MAX_VALUE))
         );
@@ -225,8 +236,7 @@ public class Cliente extends javax.swing.JFrame {
                                     .addComponent(jRadioButtonHobre)
                                     .addComponent(jRadioButtonMujer))
                                 .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 177, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE)
                         .addGap(43, 43, 43))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
@@ -248,7 +258,8 @@ public class Cliente extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonGuardar)
                     .addComponent(Cancelar)
-                    .addComponent(jButtonVer))
+                    .addComponent(jButtonVer)
+                    .addComponent(jButton1))
                 .addGap(33, 33, 33))
         );
 
@@ -311,11 +322,42 @@ dispose();        // TODO add your handling code here:
         // TODO add your handling code here:
     }//GEN-LAST:event_jButtonVerActionPerformed
 
+    private boolean buscarNit(String n){
+        boolean encontrado = false;
+        ClaseCliente cli3;
+        Iterator<ClaseCliente>itr=ArregloCliente.iterator();
+        while(itr.hasNext())
+        {
+            cli3=itr.next();
+            if (n.compareTo(cli3.getNit())==0)
+            {
+                encontrado=true;
+            }
+        }
+        return encontrado;
+    }
+    
+    
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        jTextArea1.setText("");
+        ClaseCliente cli3;
+        Iterator<ClaseCliente>itr=ArregloCliente.iterator();
+        while(itr.hasNext())
+        {
+            cli3=itr.next();
+            if(tfNit.getText().compareTo(cli3.getNit())==0)
+            {
+                jTextArea1.append(cli3.getNombre()+" "+cli3.getApellido()+" "+cli3.getNit()+" "+cli3.getDpi()+" "+cli3.getEdad()+" "+cli3.getDireccion()+" "+cli3.getTelefono()+" "+cli3.getCorreo()+"\n");
+            }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Cancelar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonGuardar;
     private javax.swing.JButton jButtonVer;
     private javax.swing.JLabel jLabel1;

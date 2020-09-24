@@ -12,12 +12,23 @@ import java.util.Vector;
  */
 public class Inicio extends javax.swing.JFrame {
  Vector <ClaseCliente> ArregloCliente=new Vector<>();
+ Vector <ClaseProducto> ArregloProducto=new Vector<>();
+ Vector <ClaseEmpleado> ArregloEmpleado=new Vector<>();
+ Vector <ClaseFactura> ArregloFactura=new Vector<>();
+ Vector <ClaseDetalleFactura> ArregloDetalle=new Vector<>();
+ Vector <ClaseProveedor> ArregloProveedor=new Vector<>();
+
 
     /**
      * Creates new form Inicio
      */
     public Inicio() {
         ArregloCliente=new  Vector<ClaseCliente>();
+        ArregloProducto=new  Vector<ClaseProducto>();
+        ArregloEmpleado=new  Vector<ClaseEmpleado>();
+        ArregloFactura=new  Vector<ClaseFactura>();
+        ArregloDetalle=new  Vector<ClaseDetalleFactura>();
+        ArregloProveedor=new  Vector<ClaseProveedor>();
         initComponents();
 
     }
@@ -44,6 +55,10 @@ public class Inicio extends javax.swing.JFrame {
         jMenu6 = new javax.swing.JMenu();
         NuevoInventario = new javax.swing.JMenuItem();
         RegistroInventario = new javax.swing.JMenuItem();
+        Factura = new javax.swing.JMenu();
+        Facturacion = new javax.swing.JMenuItem();
+        jMenu7 = new javax.swing.JMenu();
+        Reportes = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -118,13 +133,37 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu6);
 
+        Factura.setText("Factura");
+
+        Facturacion.setText("Facturacion");
+        Facturacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FacturacionActionPerformed(evt);
+            }
+        });
+        Factura.add(Facturacion);
+
+        jMenuBar1.add(Factura);
+
+        jMenu7.setText("Reportes");
+
+        Reportes.setText("Reportes");
+        Reportes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReportesActionPerformed(evt);
+            }
+        });
+        jMenu7.add(Reportes);
+
+        jMenuBar1.add(jMenu7);
+
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 462, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -135,7 +174,7 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RegistroEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroEmpleadoActionPerformed
-        Empleado Empleado1= new Empleado();
+        Empleado Empleado1= new Empleado(ArregloEmpleado);
         Empleado1.setVisible(true);
     }//GEN-LAST:event_RegistroEmpleadoActionPerformed
 
@@ -145,7 +184,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_RegistroClienteActionPerformed
 
     private void RegistroProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroProveedorActionPerformed
-        Proveedor Proveedor1= new Proveedor();
+        Proveedor Proveedor1= new Proveedor(ArregloProveedor);
         Proveedor1.setVisible(true);
     }//GEN-LAST:event_RegistroProveedorActionPerformed
 
@@ -163,6 +202,16 @@ public class Inicio extends javax.swing.JFrame {
         Inventario Inventario1= new Inventario();
         Inventario1.setVisible(true);                                    
     }//GEN-LAST:event_NuevoInventarioActionPerformed
+
+    private void FacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FacturacionActionPerformed
+         Factura Factura1= new Factura(ArregloFactura,ArregloDetalle,ArregloProducto,ArregloEmpleado,ArregloCliente);
+        Factura1.setVisible(true);  
+    }//GEN-LAST:event_FacturacionActionPerformed
+
+    private void ReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportesActionPerformed
+        Reporte Reporte1=new Reporte(ArregloCliente,ArregloProveedor);
+        Reporte1.setVisible(true);
+    }//GEN-LAST:event_ReportesActionPerformed
 
     /**
      * @param args the command line arguments
@@ -200,18 +249,22 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JMenu Factura;
+    private javax.swing.JMenuItem Facturacion;
     private javax.swing.JMenuItem NuevoInventario;
     private javax.swing.JMenuItem RegistroCliente;
     private javax.swing.JMenuItem RegistroEmpleado;
     private javax.swing.JMenuItem RegistroHabitacion;
     private javax.swing.JMenuItem RegistroInventario;
     private javax.swing.JMenuItem RegistroProveedor;
+    private javax.swing.JMenuItem Reportes;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
+    private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables
 }

@@ -194,13 +194,11 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_RegistroHabitacionActionPerformed
 
     private void RegistroInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroInventarioActionPerformed
-        RegistroDeInventario Rinventario1= new RegistroDeInventario();
-        Rinventario1.setVisible(true);
+       
     }//GEN-LAST:event_RegistroInventarioActionPerformed
 
     private void NuevoInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoInventarioActionPerformed
-        Inventario Inventario1= new Inventario();
-        Inventario1.setVisible(true);                                    
+                                           
     }//GEN-LAST:event_NuevoInventarioActionPerformed
 
     private void FacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FacturacionActionPerformed

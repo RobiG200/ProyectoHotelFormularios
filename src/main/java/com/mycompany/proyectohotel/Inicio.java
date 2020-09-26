@@ -43,7 +43,6 @@ public class Inicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
         RegistroEmpleado = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
@@ -52,18 +51,12 @@ public class Inicio extends javax.swing.JFrame {
         RegistroProveedor = new javax.swing.JMenuItem();
         jMenu5 = new javax.swing.JMenu();
         RegistroHabitacion = new javax.swing.JMenuItem();
-        jMenu6 = new javax.swing.JMenu();
-        NuevoInventario = new javax.swing.JMenuItem();
-        RegistroInventario = new javax.swing.JMenuItem();
         Factura = new javax.swing.JMenu();
         Facturacion = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
         Reportes = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        jMenu1.setText("Inicio");
-        jMenuBar1.add(jMenu1);
 
         jMenu2.setText("Empleado");
 
@@ -112,26 +105,6 @@ public class Inicio extends javax.swing.JFrame {
         jMenu5.add(RegistroHabitacion);
 
         jMenuBar1.add(jMenu5);
-
-        jMenu6.setText("Inventario");
-
-        NuevoInventario.setText("Ingresar Nuevo Inventario");
-        NuevoInventario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NuevoInventarioActionPerformed(evt);
-            }
-        });
-        jMenu6.add(NuevoInventario);
-
-        RegistroInventario.setText("Registrar en Inventario");
-        RegistroInventario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistroInventarioActionPerformed(evt);
-            }
-        });
-        jMenu6.add(RegistroInventario);
-
-        jMenuBar1.add(jMenu6);
 
         Factura.setText("Factura");
 
@@ -193,14 +166,6 @@ public class Inicio extends javax.swing.JFrame {
         Habitacion1.setVisible(true);
     }//GEN-LAST:event_RegistroHabitacionActionPerformed
 
-    private void RegistroInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroInventarioActionPerformed
-       
-    }//GEN-LAST:event_RegistroInventarioActionPerformed
-
-    private void NuevoInventarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NuevoInventarioActionPerformed
-                                           
-    }//GEN-LAST:event_NuevoInventarioActionPerformed
-
     private void FacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FacturacionActionPerformed
          Factura Factura1= new Factura(ArregloFactura,ArregloDetalle,ArregloProducto,ArregloEmpleado,ArregloCliente);
         Factura1.setVisible(true);  
@@ -249,19 +214,15 @@ public class Inicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu Factura;
     private javax.swing.JMenuItem Facturacion;
-    private javax.swing.JMenuItem NuevoInventario;
     private javax.swing.JMenuItem RegistroCliente;
     private javax.swing.JMenuItem RegistroEmpleado;
     private javax.swing.JMenuItem RegistroHabitacion;
-    private javax.swing.JMenuItem RegistroInventario;
     private javax.swing.JMenuItem RegistroProveedor;
     private javax.swing.JMenuItem Reportes;
-    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
     private javax.swing.JMenu jMenu5;
-    private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;
     // End of variables declaration//GEN-END:variables

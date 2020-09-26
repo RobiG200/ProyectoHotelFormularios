@@ -6,8 +6,8 @@
 package com.mycompany.proyectohotel;
 
 import java.util.Vector;
-import java.util.Vector;
 import java.util.Iterator;
+import javax.swing.JOptionPane;
 
 
 /**
@@ -33,21 +33,371 @@ Vector <ClaseProducto>ArregloProducto;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Reporte = new javax.swing.JTextArea();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        tfCodP = new javax.swing.JTextField();
+        tfCodProd = new javax.swing.JTextField();
+        tfNombre = new javax.swing.JTextField();
+        tfCantidad = new javax.swing.JTextField();
+        tfPrecio = new javax.swing.JTextField();
+        btGuardar = new javax.swing.JButton();
+        jButtonVer = new javax.swing.JButton();
+        btBuscar = new javax.swing.JButton();
+        btEliminar = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel1.setText("PRODUCTOS");
+
+        Reporte.setColumns(20);
+        Reporte.setRows(5);
+        jScrollPane1.setViewportView(Reporte);
+
+        jLabel3.setText("Codigo Proveedor:");
+
+        jLabel2.setText("Código Producto:");
+
+        jLabel4.setText("Nombre:");
+
+        jLabel5.setText("Cantidad:");
+
+        jLabel6.setText("Precio:");
+
+        tfCodP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCodPActionPerformed(evt);
+            }
+        });
+
+        tfCodProd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfCodProdActionPerformed(evt);
+            }
+        });
+
+        tfNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tfNombreActionPerformed(evt);
+            }
+        });
+
+        btGuardar.setText("Guardar");
+        btGuardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGuardarActionPerformed(evt);
+            }
+        });
+
+        jButtonVer.setText("Ver Datos");
+        jButtonVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerActionPerformed(evt);
+            }
+        });
+
+        btBuscar.setText("Buscar");
+        btBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btBuscarActionPerformed(evt);
+            }
+        });
+
+        btEliminar.setText("Eliminar");
+        btEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btEliminarActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Modificar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel6))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(tfCodProd)
+                            .addComponent(tfCodP)
+                            .addComponent(tfNombre)
+                            .addComponent(tfCantidad)
+                            .addComponent(tfPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(45, 45, 45)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jButtonVer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btEliminar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(218, 218, 218)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jLabel1)
+                .addGap(40, 40, 40)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel3)
+                                    .addComponent(tfCodP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(26, 26, 26)
+                                .addComponent(jLabel2))
+                            .addComponent(tfCodProd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(tfNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel5)
+                            .addComponent(tfCantidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(tfPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btGuardar)
+                            .addComponent(jButtonVer))
+                        .addGap(27, 27, 27)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btBuscar)
+                            .addComponent(btEliminar)))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton1)
+                    .addComponent(jButton2))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void tfCodPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCodPActionPerformed
+
+    private void tfCodProdActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfCodProdActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfCodProdActionPerformed
+
+      private boolean buscarNit(String n){
+        boolean encontrado = false;
+        ClaseProducto pro3;
+        Iterator<ClaseProducto>itr=ArregloProducto.iterator();
+        while(itr.hasNext())
+        {
+            pro3=itr.next();
+            if (n.compareTo(pro3.getCodArticulo())==0)
+            {
+                encontrado=true;
+            }
+        }
+        return encontrado;
+    }
+        private ClaseProducto BuscarProducto(String c)
+   {
+       ClaseProducto pro2;
+       Iterator<ClaseProducto>itr=ArregloProducto.iterator();
+       while (itr.hasNext())
+       {
+           pro2=itr.next();
+           
+           if(tfCodProd.getText().equals(pro2.getCodArticulo()))
+           {
+               return pro2;
+           }
+       }
+       return null;
+   }
+    private void tfNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tfNombreActionPerformed
+
+    private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
+         if(evt.getSource()==btGuardar)
+      {
+         if (tfCodProd.getText().isEmpty())
+        {
+            JOptionPane.showMessageDialog(null, "El campo del Codigo esta vacio");
+        }
+        else
+        {
+            if(evt.getSource()==btGuardar)
+            {
+                if (buscarNit(tfCodProd.getText())== false)
+                    {
+                     ClaseProducto pro= new ClaseProducto();
+                     pro.setCodProveedor(tfCodP.getText());
+                     pro.setCodArticulo(tfCodProd.getText());
+                     pro.setNombre(tfNombre.getText());
+                     pro.setCantidad(tfCantidad.getText());
+                     pro.setPrecio(tfPrecio.getText());
+                     ArregloProducto.add(pro);
+                     tfCodP.setText("");
+                     tfCodProd.setText("");
+                     tfNombre.setText("");
+                     tfCantidad.setText("");
+                     tfPrecio.setText("");
+
+
+                    }
+                    else
+                    {
+                        JOptionPane.showMessageDialog(null, "El Código ya fue registrado anteriormente");
+                        tfCodP.setText("");
+                        tfCodProd.setText("");
+                        tfNombre.setText("");
+                        tfCantidad.setText("");
+                        tfPrecio.setText("");
+                                                
+
+                                                
+
+                    }            
+            }
+        }        
+
+          
+          
+      }
+    }//GEN-LAST:event_btGuardarActionPerformed
+
+    private void jButtonVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerActionPerformed
+         Reporte.setText("");
+        if(evt.getSource()==jButtonVer)
+        {
+            ClaseProducto p2;
+            Iterator<ClaseProducto>itr=ArregloProducto.iterator();
+            while(itr.hasNext())
+            {
+                p2=itr.next();
+                Reporte.append(p2.getCodProveedor()+" "+p2.getCodArticulo()+" "+p2.getNombre()+" "+p2.getCantidad()+" "+p2.getPrecio()+"\n");
+            }
+        }
+    }//GEN-LAST:event_jButtonVerActionPerformed
+
+    private void btBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btBuscarActionPerformed
+         if (evt.getSource()==btBuscar)
+        {
+            ClaseProducto p=BuscarProducto(tfCodProd.getText());
+            if (p!=null)
+                Reporte.setText(p.getCodProveedor()+" "+p.getCodArticulo()+" "+p.getNombre()+" "+p.getCantidad()+" "+p.getPrecio()+"\n");
+            
+            
+            
+//JOptionPane.showMessageDialog(null, "El campo de nit esta vacio");
+        }
+    }//GEN-LAST:event_btBuscarActionPerformed
+
+    private void btEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btEliminarActionPerformed
+         if(evt.getSource()==btEliminar)
+       {
+           ClaseProducto pro=BuscarProducto(tfCodProd.getText());
+           if (pro!=null)
+               if(ArregloProducto.contains(pro))
+               {
+                   ArregloProducto.remove(pro);
+                   tfCodP.setText(" ");
+                   tfCodProd.setText("");
+                   tfNombre.setText("");
+                   tfCantidad.setText("");
+                   tfPrecio.setText("");
+                   tfCodProd.requestFocus();
+               }
+       }
+    }//GEN-LAST:event_btEliminarActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       if (tfCodProd.getText().isEmpty())
+       {
+           JOptionPane.showMessageDialog(null, "Ingrese un Código");
+       }
+       else
+       {
+           if(buscarNit(tfCodProd.getText())==true)
+           {
+               ClaseProducto pro4;
+               Integer count=0;
+               Iterator<ClaseProducto>itr=ArregloProducto.iterator();
+               while(itr.hasNext())
+               {
+                   count++;
+                   pro4=itr.next();
+                   if(tfCodProd.getText().compareTo(pro4.getCodArticulo())==0)
+                   {
+                     pro4.setCodProveedor(tfCodP.getText());
+                     pro4.setCodArticulo(tfCodProd.getText());
+                     pro4.setNombre(tfNombre.getText());
+                     pro4.setCantidad(tfCantidad.getText()); 
+                     pro4.setPrecio(tfPrecio.getText());
+                     
+                     Reporte.setText("");
+                     ClaseProducto pro3;
+                     Iterator<ClaseProducto>itr1=ArregloProducto.iterator();
+                     while(itr1.hasNext())
+                     {
+                         pro3=itr1.next();
+                         Reporte.append(pro3.getCodProveedor()+" "+pro3.getCodArticulo()+" "+pro3.getNombre()+" "+pro3.getCantidad()+" "+pro3.getPrecio()+"\n");
+                     }
+                   }
+               }
+           }
+           else
+           {
+               JOptionPane.showMessageDialog(null, "Codigo no existe");
+           }
+       }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       dispose(); 
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -55,5 +405,24 @@ Vector <ClaseProducto>ArregloProducto;
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea Reporte;
+    private javax.swing.JButton btBuscar;
+    private javax.swing.JButton btEliminar;
+    private javax.swing.JButton btGuardar;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButtonVer;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField tfCantidad;
+    private javax.swing.JTextField tfCodP;
+    private javax.swing.JTextField tfCodProd;
+    private javax.swing.JTextField tfNombre;
+    private javax.swing.JTextField tfPrecio;
     // End of variables declaration//GEN-END:variables
 }

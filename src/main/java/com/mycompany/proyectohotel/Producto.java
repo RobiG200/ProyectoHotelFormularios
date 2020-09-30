@@ -16,12 +16,14 @@ import javax.swing.JOptionPane;
  */
 public class Producto extends javax.swing.JFrame {
 Vector <ClaseProducto>ArregloProducto;
+Vector <ClaseProveedor>ArregloProveedor;
     /**
      * Creates new form Producto
      */
-    public Producto(Vector <ClaseProducto>a) {
+    public Producto(Vector <ClaseProducto>a,Vector<ClaseProveedor>p) {
         initComponents();
         ArregloProducto=a;
+        ArregloProveedor=p;
     }
 
     /**
@@ -50,7 +52,7 @@ Vector <ClaseProducto>ArregloProducto;
         jButtonVer = new javax.swing.JButton();
         btBuscar = new javax.swing.JButton();
         btEliminar = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        btModificar = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -118,10 +120,10 @@ Vector <ClaseProducto>ArregloProducto;
             }
         });
 
-        jButton1.setText("Modificar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btModificar.setText("Modificar");
+        btModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btModificarActionPerformed(evt);
             }
         });
 
@@ -155,7 +157,7 @@ Vector <ClaseProducto>ArregloProducto;
                             .addComponent(tfPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, 151, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btModificar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(45, 45, 45)
@@ -210,7 +212,7 @@ Vector <ClaseProducto>ArregloProducto;
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btModificar)
                     .addComponent(jButton2))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
@@ -240,6 +242,25 @@ Vector <ClaseProducto>ArregloProducto;
         }
         return encontrado;
     }
+      
+        private boolean buscarProveedor(String n){
+        boolean encontrado = false;
+        ClaseProveedor pro3;
+        Iterator<ClaseProveedor>itr=ArregloProveedor.iterator();
+        while(itr.hasNext())
+        {
+            pro3=itr.next();
+            if (n.compareTo(pro3.getNit())==0)
+            {
+                encontrado=true;
+            }
+        }
+        return encontrado;
+    }
+      
+      
+      
+      
         private ClaseProducto BuscarProducto(String c)
    {
        ClaseProducto pro2;
@@ -268,9 +289,11 @@ Vector <ClaseProducto>ArregloProducto;
         }
         else
         {
+           
             if(evt.getSource()==btGuardar)
             {
-                if (buscarNit(tfCodProd.getText())== false)
+                if(buscarProveedor(tfCodP.getText())== true){
+                    if (buscarNit(tfCodProd.getText())== false)
                     {
                      ClaseProducto pro= new ClaseProducto();
                      pro.setCodProveedor(tfCodP.getText());
@@ -295,11 +318,17 @@ Vector <ClaseProducto>ArregloProducto;
                         tfNombre.setText("");
                         tfCantidad.setText("");
                         tfPrecio.setText("");
-                                                
-
-                                                
-
-                    }            
+                    }           
+                
+                }
+                
+                
+                else
+                    {
+                        JOptionPane.showMessageDialog(null, "El Código  del proveedor no existe");
+                        tfCodProd.setText("");
+                    }          
+               
             }
         }        
 
@@ -353,7 +382,7 @@ Vector <ClaseProducto>ArregloProducto;
        }
     }//GEN-LAST:event_btEliminarActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModificarActionPerformed
        if (tfCodProd.getText().isEmpty())
        {
            JOptionPane.showMessageDialog(null, "Ingrese un Código");
@@ -393,7 +422,7 @@ Vector <ClaseProducto>ArregloProducto;
                JOptionPane.showMessageDialog(null, "Codigo no existe");
            }
        }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btModificarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        dispose(); 
@@ -409,7 +438,7 @@ Vector <ClaseProducto>ArregloProducto;
     private javax.swing.JButton btBuscar;
     private javax.swing.JButton btEliminar;
     private javax.swing.JButton btGuardar;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btModificar;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButtonVer;
     private javax.swing.JLabel jLabel1;

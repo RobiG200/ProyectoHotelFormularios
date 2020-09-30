@@ -32,6 +32,7 @@
                           <Component id="ReporteEmpleado" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="btReporteCliente" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="ReporteProveedores" min="-2" max="-2" attributes="0"/>
+                          <Component id="btInventarioProducto" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="33" max="32767" attributes="0"/>
                   </Group>
@@ -68,6 +69,8 @@
               <Component id="ReporteEmpleado" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Component id="ReporteProveedores" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="btInventarioProducto" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="32767" attributes="0"/>
               <Component id="ReporteFactura" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
@@ -145,6 +148,14 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="jLabel2"/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="btInventarioProducto">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Inventario de Productos"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btInventarioProductoActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>

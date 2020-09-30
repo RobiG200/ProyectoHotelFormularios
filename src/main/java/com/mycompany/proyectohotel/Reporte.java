@@ -16,13 +16,15 @@ import java.util.Vector;
 public class Reporte extends javax.swing.JFrame {
 Vector <ClaseCliente>ArregloCliente;
 Vector <ClaseProveedor>ArregloProveedor;
+Vector <ClaseProducto>ArregloProducto;
     /**
      * Creates new form Reportes
      */
-    public Reporte(Vector <ClaseCliente>a,Vector <ClaseProveedor>p) {
+    public Reporte(Vector <ClaseCliente>a,Vector <ClaseProveedor>p,Vector <ClaseProducto>pro ) {
         initComponents();
         ArregloCliente=a;
         ArregloProveedor=p;
+        ArregloProducto=pro;
     }
 
     /**
@@ -43,6 +45,7 @@ Vector <ClaseProveedor>ArregloProveedor;
         jLabel1 = new javax.swing.JLabel();
         ReporteProveedores = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
+        btInventarioProducto = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -79,6 +82,13 @@ Vector <ClaseProveedor>ArregloProveedor;
 
         jLabel2.setText("jLabel2");
 
+        btInventarioProducto.setText("Inventario de Productos");
+        btInventarioProducto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btInventarioProductoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -91,7 +101,8 @@ Vector <ClaseProveedor>ArregloProveedor;
                             .addComponent(ReporteFactura)
                             .addComponent(ReporteEmpleado)
                             .addComponent(btReporteCliente)
-                            .addComponent(ReporteProveedores))
+                            .addComponent(ReporteProveedores)
+                            .addComponent(btInventarioProducto))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -118,6 +129,8 @@ Vector <ClaseProveedor>ArregloProveedor;
                 .addComponent(ReporteEmpleado)
                 .addGap(30, 30, 30)
                 .addComponent(ReporteProveedores)
+                .addGap(18, 18, 18)
+                .addComponent(btInventarioProducto)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(ReporteFactura)
                 .addGap(29, 29, 29)
@@ -173,6 +186,20 @@ Vector <ClaseProveedor>ArregloProveedor;
         }
     }//GEN-LAST:event_ReporteProveedoresActionPerformed
 
+    private void btInventarioProductoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btInventarioProductoActionPerformed
+        Reporte.setText("");
+        if(evt.getSource()==btInventarioProducto)
+        {
+            ClaseProducto p2;
+            Iterator<ClaseProducto>itr=ArregloProducto.iterator();
+            while(itr.hasNext())
+            {
+                p2=itr.next();
+                Reporte.append(p2.getCodProveedor()+" "+p2.getCodArticulo()+" "+p2.getNombre()+" "+p2.getCantidad()+" "+p2.getPrecio()+"\n");
+            }
+        }
+    }//GEN-LAST:event_btInventarioProductoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -183,6 +210,7 @@ Vector <ClaseProveedor>ArregloProveedor;
     private javax.swing.JButton ReporteFactura;
     private javax.swing.JButton ReporteProveedores;
     private javax.swing.JButton btCerrar;
+    private javax.swing.JButton btInventarioProducto;
     private javax.swing.JButton btReporteCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;

@@ -70,7 +70,6 @@ Vector <ClaseProveedor>ArregloProveedor;
             }
         });
 
-        btGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/proyectohotel/guardar.png"))); // NOI18N
         btGuardar.setText("Guardar");
         btGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -206,7 +205,7 @@ Vector <ClaseProveedor>ArregloProveedor;
                             .addComponent(Cancelar)
                             .addComponent(jButton1)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         pack();

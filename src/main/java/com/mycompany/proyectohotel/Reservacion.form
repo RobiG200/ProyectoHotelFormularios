@@ -31,7 +31,7 @@
                   <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="btAgregra" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Component id="jLabel10" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -40,21 +40,21 @@
                   <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="tfNoHabitacion" min="-2" pref="146" max="-2" attributes="0"/>
-                          <Component id="tfNoReservacion" min="-2" pref="146" max="-2" attributes="0"/>
+                          <Component id="JTxtFNumHabitacion" min="-2" pref="146" max="-2" attributes="0"/>
+                          <Component id="JTxtFNoReservacion" min="-2" pref="146" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="tfDiaE" alignment="0" pref="30" max="32767" attributes="0"/>
-                                      <Component id="tfDiaS" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="JTxtFDiaI" alignment="0" pref="30" max="32767" attributes="0"/>
+                                      <Component id="JTxtFDiaS" alignment="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel7" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="tfMesS" pref="33" max="32767" attributes="0"/>
-                                      <Component id="tfMesE" max="32767" attributes="0"/>
+                                      <Component id="JTxtFMesS" pref="33" max="32767" attributes="0"/>
+                                      <Component id="JTxtFMesI" max="32767" attributes="0"/>
                                   </Group>
                                   <Component id="jLabel8" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
@@ -62,13 +62,13 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="tfAñoS" pref="39" max="32767" attributes="0"/>
-                                      <Component id="tfAñoE" max="32767" attributes="0"/>
+                                      <Component id="JTxtFAñoS" pref="39" max="32767" attributes="0"/>
+                                      <Component id="JTxtFAñoI" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                           </Group>
-                          <Component id="TfNombreCli" max="32767" attributes="0"/>
-                          <Component id="tfPrecio" alignment="0" max="32767" attributes="0"/>
+                          <Component id="JTxtFNombreCliente" max="32767" attributes="0"/>
+                          <Component id="JTxtFPrecio" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -116,11 +116,11 @@
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfNoReservacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTxtFNoReservacion" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="tfNoHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTxtFNumHabitacion" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
@@ -132,29 +132,29 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfDiaE" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfMesE" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfAñoE" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTxtFDiaI" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTxtFMesI" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTxtFAñoI" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfDiaS" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfMesS" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="tfAñoS" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTxtFDiaS" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTxtFMesS" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTxtFAñoS" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="TfNombreCli" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="JTxtFNombreCliente" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="tfPrecio" min="-2" max="-2" attributes="0"/>
+                      <Component id="JTxtFPrecio" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace pref="52" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btAgregra" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton2" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton6" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButton3" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -175,9 +175,9 @@
         <Property name="text" type="java.lang.String" value="Reservaci&#xf3;n"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfNoReservacion">
+    <Component class="javax.swing.JTextField" name="JTxtFNoReservacion">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfNoReservacionActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTxtFNoReservacionActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
@@ -190,7 +190,7 @@
         <Property name="text" type="java.lang.String" value="No. Habitacion:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfNoHabitacion">
+    <Component class="javax.swing.JTextField" name="JTxtFNumHabitacion">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
@@ -207,16 +207,19 @@
         <Property name="text" type="java.lang.String" value="Nombre de Cliente:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfDiaE">
+    <Component class="javax.swing.JTextField" name="JTxtFDiaI">
     </Component>
-    <Component class="javax.swing.JTextField" name="tfDiaS">
+    <Component class="javax.swing.JTextField" name="JTxtFDiaS">
     </Component>
-    <Component class="javax.swing.JTextField" name="TfNombreCli">
+    <Component class="javax.swing.JTextField" name="JTxtFNombreCliente">
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="btAgregra">
       <Properties>
         <Property name="text" type="java.lang.String" value="Agregar"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btAgregraActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jButton2">
       <Properties>
@@ -238,16 +241,16 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JTextField" name="tfMesS">
+    <Component class="javax.swing.JTextField" name="JTxtFMesS">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfMesSActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTxtFMesSActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfA&#xf1;oS">
+    <Component class="javax.swing.JTextField" name="JTxtFA&#xf1;oS">
     </Component>
-    <Component class="javax.swing.JTextField" name="tfMesE">
+    <Component class="javax.swing.JTextField" name="JTxtFMesI">
     </Component>
-    <Component class="javax.swing.JTextField" name="tfA&#xf1;oE">
+    <Component class="javax.swing.JTextField" name="JTxtFA&#xf1;oI">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
@@ -289,9 +292,9 @@
         <Property name="text" type="java.lang.String" value="Precio:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="tfPrecio">
+    <Component class="javax.swing.JTextField" name="JTxtFPrecio">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tfPrecioActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="JTxtFPrecioActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

@@ -31,6 +31,7 @@ com\mycompany\proyectohotel\Empleado$3.class
 com\mycompany\proyectohotel\Inicio$2.class
 com\mycompany\proyectohotel\Proveedor$7.class
 com\mycompany\proyectohotel\Reservacion$3.class
+com\mycompany\proyectohotel\VectorConsulta.class
 com\mycompany\proyectohotel\ClaseFactura.class
 com\mycompany\proyectohotel\Habitacion$2.class
 com\mycompany\proyectohotel\Empleado$1.class
@@ -47,9 +48,9 @@ com\mycompany\proyectohotel\Producto$1.class
 com\mycompany\proyectohotel\Inicio$1.class
 com\mycompany\proyectohotel\Reporte$4.class
 com\mycompany\proyectohotel\Cliente$6.class
+com\mycompany\proyectohotel\ClaseReservacion.class
 com\mycompany\proyectohotel\Inicio$8.class
 com\mycompany\proyectohotel\Proveedor$6.class
-com\mycompany\proyectohotel\ClaseReserva.class
 com\mycompany\proyectohotel\Cliente$3.class
 com\mycompany\proyectohotel\Empleado$4.class
 com\mycompany\proyectohotel\Habitacion.class

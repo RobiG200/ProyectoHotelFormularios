@@ -4,18 +4,24 @@
  * and open the template in the editor.
  */
 package com.mycompany.proyectohotel;
+import java.util.Vector;
+import java.util.Iterator;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author Robin Mita
  */
 public class Reservacion extends javax.swing.JFrame {
-
+   Vector <VectorConsulta>ConsultaVector;
+   Vector <ClaseReservacion>Reservaciones;
     /**
      * Creates new form Reservacion
      */
-    public Reservacion() {
+    public Reservacion(Vector <VectorConsulta>a,Vector <ClaseReservacion>b) {
         initComponents();
+        ConsultaVector=a;
+        Reservaciones=b;
     }
 
     /**
@@ -28,24 +34,24 @@ public class Reservacion extends javax.swing.JFrame {
     private void initComponents() {
 
         jLabel1 = new javax.swing.JLabel();
-        tfNoReservacion = new javax.swing.JTextField();
+        JTxtFNoReservacion = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        tfNoHabitacion = new javax.swing.JTextField();
+        JTxtFNumHabitacion = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        tfDiaE = new javax.swing.JTextField();
-        tfDiaS = new javax.swing.JTextField();
-        TfNombreCli = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        JTxtFDiaI = new javax.swing.JTextField();
+        JTxtFDiaS = new javax.swing.JTextField();
+        JTxtFNombreCliente = new javax.swing.JTextField();
+        btAgregra = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
-        tfMesS = new javax.swing.JTextField();
-        tfAñoS = new javax.swing.JTextField();
-        tfMesE = new javax.swing.JTextField();
-        tfAñoE = new javax.swing.JTextField();
+        JTxtFMesS = new javax.swing.JTextField();
+        JTxtFAñoS = new javax.swing.JTextField();
+        JTxtFMesI = new javax.swing.JTextField();
+        JTxtFAñoI = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -54,16 +60,16 @@ public class Reservacion extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
-        tfPrecio = new javax.swing.JTextField();
+        JTxtFPrecio = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 48)); // NOI18N
         jLabel1.setText("Reservación");
 
-        tfNoReservacion.addActionListener(new java.awt.event.ActionListener() {
+        JTxtFNoReservacion.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfNoReservacionActionPerformed(evt);
+                JTxtFNoReservacionActionPerformed(evt);
             }
         });
 
@@ -77,7 +83,12 @@ public class Reservacion extends javax.swing.JFrame {
 
         jLabel6.setText("Nombre de Cliente:");
 
-        jButton1.setText("Agregar");
+        btAgregra.setText("Agregar");
+        btAgregra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btAgregraActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cerrar");
 
@@ -85,9 +96,9 @@ public class Reservacion extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         jScrollPane1.setViewportView(jTextArea1);
 
-        tfMesS.addActionListener(new java.awt.event.ActionListener() {
+        JTxtFMesS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfMesSActionPerformed(evt);
+                JTxtFMesSActionPerformed(evt);
             }
         });
 
@@ -107,9 +118,9 @@ public class Reservacion extends javax.swing.JFrame {
 
         jLabel10.setText("Precio:");
 
-        tfPrecio.addActionListener(new java.awt.event.ActionListener() {
+        JTxtFPrecio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfPrecioActionPerformed(evt);
+                JTxtFPrecioActionPerformed(evt);
             }
         });
 
@@ -125,35 +136,35 @@ public class Reservacion extends javax.swing.JFrame {
                     .addComponent(jLabel4)
                     .addComponent(jLabel5)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton1)
+                        .addComponent(btAgregra)
                         .addComponent(jLabel6))
                     .addComponent(jLabel10))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(34, 34, 34)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(tfNoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfNoReservacion, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JTxtFNumHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JTxtFNoReservacion, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addComponent(tfDiaE, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
-                                        .addComponent(tfDiaS, javax.swing.GroupLayout.Alignment.LEADING))
+                                        .addComponent(JTxtFDiaI, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 30, Short.MAX_VALUE)
+                                        .addComponent(JTxtFDiaS, javax.swing.GroupLayout.Alignment.LEADING))
                                     .addComponent(jLabel7))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(tfMesS, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
-                                        .addComponent(tfMesE))
+                                        .addComponent(JTxtFMesS, javax.swing.GroupLayout.DEFAULT_SIZE, 33, Short.MAX_VALUE)
+                                        .addComponent(JTxtFMesI))
                                     .addComponent(jLabel8))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel9)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(tfAñoS, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
-                                        .addComponent(tfAñoE))))
-                            .addComponent(TfNombreCli)
-                            .addComponent(tfPrecio)))
+                                        .addComponent(JTxtFAñoS, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE)
+                                        .addComponent(JTxtFAñoI))))
+                            .addComponent(JTxtFNombreCliente)
+                            .addComponent(JTxtFPrecio)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(1, 1, 1)
                         .addComponent(jButton6)
@@ -190,10 +201,10 @@ public class Reservacion extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel2)
-                            .addComponent(tfNoReservacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JTxtFNoReservacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(tfNoHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JTxtFNumHabitacion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel3))
                         .addGap(13, 13, 13)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -203,24 +214,24 @@ public class Reservacion extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel4)
-                            .addComponent(tfDiaE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfMesE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfAñoE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JTxtFDiaI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JTxtFMesI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JTxtFAñoI, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel5)
-                            .addComponent(tfDiaS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfMesS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tfAñoS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JTxtFDiaS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JTxtFMesS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(JTxtFAñoS, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
-                            .addComponent(TfNombreCli, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(JTxtFNombreCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addComponent(tfPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(JTxtFPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(btAgregra)
                     .addComponent(jButton2)
                     .addComponent(jButton6)
                     .addComponent(jButton3)
@@ -232,56 +243,162 @@ public class Reservacion extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tfMesSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfMesSActionPerformed
+    private void JTxtFMesSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTxtFMesSActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfMesSActionPerformed
+    }//GEN-LAST:event_JTxtFMesSActionPerformed
 
-    private void tfPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfPrecioActionPerformed
+    private void JTxtFPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTxtFPrecioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfPrecioActionPerformed
+    }//GEN-LAST:event_JTxtFPrecioActionPerformed
 
-    private void tfNoReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tfNoReservacionActionPerformed
+    private void JTxtFNoReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JTxtFNoReservacionActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_tfNoReservacionActionPerformed
+    }//GEN-LAST:event_JTxtFNoReservacionActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
+    
+    
+    private Integer buscarReserva()
+    {        
+        ClaseReservacion c3;
+        Integer cont =0;
+        Iterator<ClaseReservacion>itr=Reservaciones.iterator();
+        while(itr.hasNext())
+            {
+                cont++;
+                c3=itr.next();
+                if (JTxtFNumHabitacion.getText().compareTo(c3.getNoReservacion())==0)
+                {
+                 
                 }
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Reservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Reservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Reservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Reservacion.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Reservacion().setVisible(true);
+        
+        return cont;
+        
+    }
+    
+    
+        private Integer buscarCons()
+    {        
+        VectorConsulta c3;
+        Integer cont =0;
+        Iterator<VectorConsulta>itr=ConsultaVector.iterator();
+        while(itr.hasNext())
+            {
+                cont++;
+                c3=itr.next();
+                
             }
-        });
+        
+        return cont;
+        
     }
 
+    
+     private void IngresarCons(String z, Integer x, Integer y)
+    {
+        VectorConsulta co = new VectorConsulta();
+        co.setNumHabitacion(z);
+        co.setDiaIngreso(x);
+        co.setDiaEgreso(y);
+        ConsultaVector.add(co);
+    }
+
+     
+     
+     private void IngresarReserva(){
+         
+      
+                     ClaseReservacion emp= new ClaseReservacion();
+                     emp.setNoReserva(JTxtFNoReservacion.getText());
+                     emp.setNoHabitacion(JTxtFNumHabitacion.getText());
+                     int DiaI=Integer.parseInt(JTxtFDiaI.getText());
+                     emp.setDiaEntrada(DiaI);
+                     int DiaS=Integer.parseInt(JTxtFDiaS.getText());
+                     emp.setDiaSalida(DiaS);
+                     int MesI=Integer.parseInt(JTxtFMesI.getText());
+                     emp.setMesEntrada(MesI);
+                     int MesS=Integer.parseInt(JTxtFMesS.getText());
+                     emp.setMesSalida(MesS);
+                     int AnoI=Integer.parseInt(JTxtFAñoI.getText());
+                     emp.setAñoEntrada(AnoI);
+                     int AnoS=Integer.parseInt(JTxtFAñoS.getText());
+                     emp.setAñoSalida(AnoS);
+                     emp.setNombreCli(JTxtFNombreCliente.getText());
+                     int PrecioR=Integer.parseInt(JTxtFPrecio.getText());
+                     emp.setPrecio(PrecioR);
+                     
+                      
+         
+     }
+
+    
+    private void btAgregraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAgregraActionPerformed
+        Integer a= Integer.parseInt(JTxtFNoReservacion.getText());
+        Integer b= Integer.parseInt(JTxtFDiaS.getText());
+        Integer c1= Integer.parseInt(JTxtFMesI.getText());
+        Integer d= Integer.parseInt(JTxtFMesS.getText());
+        Integer e= Integer.parseInt(JTxtFAñoI.getText());
+        Integer f= Integer.parseInt(JTxtFAñoS.getText());
+        Integer g= Integer.parseInt(JTxtFPrecio.getText());
+        Integer cont1=0;
+        Integer cont2=0;
+        VectorConsulta co=null;
+        if(buscarReserva()== 0)
+        {
+           IngresarReserva();
+        }           
+        else
+        {          
+            ClaseReservacion c4;
+            Iterator<ClaseReservacion>itr=Reservaciones.iterator();
+            while(itr.hasNext())
+            {              
+                c4=itr.next();
+                if (JTxtFNumHabitacion.getText().compareTo(c4.getNumeroHabitacion())==0)
+                {
+                    String z=c4.getNumeroHabitacion();
+                    Integer y=c4.getDiaIngreso();
+                    Integer x=c4.getMesSalida();
+                    IngresarCons(z, y, x);
+                }                
+            }
+            VectorConsulta vc4;
+            Iterator<VectorConsulta>itr1=ConsultaVector.iterator();
+            while(itr1.hasNext())
+            {
+                cont1++;
+                vc4=itr1.next();
+                if( a < vc4.getDiaIngreso() ||  a > vc4.getDiaEgreso()  )
+                    {
+                        cont2++;
+                    }                   
+            }
+            if (cont1 == cont2)
+            {
+                IngresarReserva();                
+            }
+            else
+            {
+                JOptionPane.showMessageDialog(null, "Habitacion Reservada");
+            }
+            
+        }
+        ConsultaVector.removeAllElements(); 
+    }//GEN-LAST:event_btAgregraActionPerformed
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField TfNombreCli;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JTextField JTxtFAñoI;
+    private javax.swing.JTextField JTxtFAñoS;
+    private javax.swing.JTextField JTxtFDiaI;
+    private javax.swing.JTextField JTxtFDiaS;
+    private javax.swing.JTextField JTxtFMesI;
+    private javax.swing.JTextField JTxtFMesS;
+    private javax.swing.JTextField JTxtFNoReservacion;
+    private javax.swing.JTextField JTxtFNombreCliente;
+    private javax.swing.JTextField JTxtFNumHabitacion;
+    private javax.swing.JTextField JTxtFPrecio;
+    private javax.swing.JButton btAgregra;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -299,14 +416,5 @@ public class Reservacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField tfAñoE;
-    private javax.swing.JTextField tfAñoS;
-    private javax.swing.JTextField tfDiaE;
-    private javax.swing.JTextField tfDiaS;
-    private javax.swing.JTextField tfMesE;
-    private javax.swing.JTextField tfMesS;
-    private javax.swing.JTextField tfNoHabitacion;
-    private javax.swing.JTextField tfNoReservacion;
-    private javax.swing.JTextField tfPrecio;
     // End of variables declaration//GEN-END:variables
 }

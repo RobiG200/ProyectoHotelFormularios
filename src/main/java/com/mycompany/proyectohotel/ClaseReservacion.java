@@ -9,16 +9,16 @@ package com.mycompany.proyectohotel;
  *
  * @author PC Familiar
  */
-public class ClaseReserva {
+public class ClaseReservacion {
     
     String NoReserva;
     String NoHabitacion;
-    String DiaEntrada;
-    String MesEntrada;
-    String AñoEntrada;
-    String DiaSalida;
-    String MesSalida;
-    String AñoSalida;
+    Integer DiaEntrada;
+    Integer MesEntrada;
+    Integer AñoEntrada;
+    Integer DiaSalida;
+    Integer MesSalida;
+    Integer AñoSalida;
     String NombreCli;
     Integer Precio;
     
@@ -32,37 +32,37 @@ public class ClaseReserva {
         NoHabitacion=nh;
     }
     
-    public void setDiaEntrada(String de)
+    public void setDiaEntrada(Integer de)
     {
         DiaEntrada=de;
     }
     
-    public void setMesEntrada(String me)
+    public void setMesEntrada(Integer me)
     {
         MesEntrada=me;
     }
      
-    public void setAñoEntrada(String ae)
+    public void setAñoEntrada(Integer ae)
     {
         AñoEntrada=ae;
     }
      
-    public void setDiaSalida(String ds)
+    public void setDiaSalida(Integer ds)
     {
         DiaSalida=ds;
     }
     
-    public void setMesSalida(String ms)
+    public void setMesSalida(Integer ms)
     {
         MesSalida=ms;
     }
     
-    public void setAñoSalida(String as)
+    public void setAñoSalida(Integer as)
     {
         AñoSalida=as;
     }
     
-    public void setNombreCli (String nc)
+    public void setNombreCli(String nc)
     {
         NombreCli=nc;
     }
@@ -71,35 +71,35 @@ public class ClaseReserva {
         this.Precio = Precio;
     }
 
-    public String getNoReserva() {
+    public String getNoReservacion() {
         return NoReserva;
     }
 
-    public String getNoHabitacion() {
+    public String getNumeroHabitacion() {
         return NoHabitacion;
     }
 
-    public String getDiaEntrada() {
+    public Integer getDiaIngreso() {
         return DiaEntrada;
     }
 
-    public String getMesEntrada() {
+    public Integer getMesEntrada() {
         return MesEntrada;
     }
 
-    public String getAñoEntrada() {
+    public Integer getAñoEntrada() {
         return AñoEntrada;
     }
 
-    public String getDiaSalida() {
+    public Integer getDiaSalida() {
         return DiaSalida;
     }
 
-    public String getMesSalida() {
+    public Integer getMesSalida() {
         return MesSalida;
     }
 
-    public String getAñoSalida() {
+    public Integer getAñoSalida() {
         return AñoSalida;
     }
 

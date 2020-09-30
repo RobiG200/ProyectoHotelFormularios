@@ -6,6 +6,7 @@
 package com.mycompany.proyectohotel;
 import java.util.Vector;
 import java.util.Iterator;
+import java.util.Objects;
 import javax.swing.JOptionPane;
 
 /**
@@ -47,7 +48,7 @@ public class Reservacion extends javax.swing.JFrame {
         btAgregra = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        Reporte = new javax.swing.JTextArea();
         JTxtFMesS = new javax.swing.JTextField();
         JTxtFAñoS = new javax.swing.JTextField();
         JTxtFMesI = new javax.swing.JTextField();
@@ -58,7 +59,7 @@ public class Reservacion extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        jButtonVer = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
         JTxtFPrecio = new javax.swing.JTextField();
 
@@ -91,10 +92,15 @@ public class Reservacion extends javax.swing.JFrame {
         });
 
         jButton2.setText("Cerrar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        Reporte.setColumns(20);
+        Reporte.setRows(5);
+        jScrollPane1.setViewportView(Reporte);
 
         JTxtFMesS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -114,7 +120,12 @@ public class Reservacion extends javax.swing.JFrame {
 
         jButton5.setText("Modificar");
 
-        jButton6.setText("Ver datos");
+        jButtonVer.setText("Ver datos");
+        jButtonVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerActionPerformed(evt);
+            }
+        });
 
         jLabel10.setText("Precio:");
 
@@ -167,7 +178,7 @@ public class Reservacion extends javax.swing.JFrame {
                             .addComponent(JTxtFPrecio)))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                         .addGap(1, 1, 1)
-                        .addComponent(jButton6)
+                        .addComponent(jButtonVer)
                         .addGap(28, 28, 28)
                         .addComponent(jButton4)))
                 .addGap(32, 32, 32)
@@ -233,7 +244,7 @@ public class Reservacion extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btAgregra)
                     .addComponent(jButton2)
-                    .addComponent(jButton6)
+                    .addComponent(jButtonVer)
                     .addComponent(jButton3)
                     .addComponent(jButton4)
                     .addComponent(jButton5))
@@ -266,7 +277,7 @@ public class Reservacion extends javax.swing.JFrame {
             {
                 cont++;
                 c3=itr.next();
-                if (JTxtFNumHabitacion.getText().compareTo(c3.getNoReservacion())==0)
+                if (JTxtFNoReservacion.getText().compareTo(c3.getNoReservacion())==0)
                 {
                  
                 }
@@ -326,14 +337,15 @@ public class Reservacion extends javax.swing.JFrame {
                      emp.setNombreCli(JTxtFNombreCliente.getText());
                      int PrecioR=Integer.parseInt(JTxtFPrecio.getText());
                      emp.setPrecio(PrecioR);
-                     
+                     Reservaciones.add(emp);
                       
+                     Reporte.setText("");
          
      }
 
     
     private void btAgregraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAgregraActionPerformed
-        Integer a= Integer.parseInt(JTxtFNoReservacion.getText());
+        Integer a= Integer.parseInt(JTxtFDiaI.getText());
         Integer b= Integer.parseInt(JTxtFDiaS.getText());
         Integer c1= Integer.parseInt(JTxtFMesI.getText());
         Integer d= Integer.parseInt(JTxtFMesS.getText());
@@ -366,14 +378,15 @@ public class Reservacion extends javax.swing.JFrame {
             Iterator<VectorConsulta>itr1=ConsultaVector.iterator();
             while(itr1.hasNext())
             {
-                cont1++;
+                
                 vc4=itr1.next();
                 if( a < vc4.getDiaIngreso() ||  a > vc4.getDiaEgreso()  )
                     {
                         cont2++;
-                    }                   
+                    }
+                cont1++;
             }
-            if (cont1 == cont2)
+            if (Objects.equals(cont1, cont2))
             {
                 IngresarReserva();                
             }
@@ -381,10 +394,28 @@ public class Reservacion extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null, "Habitacion Reservada");
             }
-            
+           
         }
-        ConsultaVector.removeAllElements(); 
+         ConsultaVector.removeAllElements(); 
     }//GEN-LAST:event_btAgregraActionPerformed
+
+    private void jButtonVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerActionPerformed
+        //  Reporte.setText("");
+        if(evt.getSource()==jButtonVer)
+        {
+            ClaseReservacion c2;
+            Iterator<ClaseReservacion>itr=Reservaciones.iterator();
+            while(itr.hasNext())
+            {
+                c2=itr.next();
+                Reporte.append(c2.getNoReservacion()+" "+c2.getNumeroHabitacion()+" "+c2.getDiaIngreso()+" "+c2.getMesEntrada()+" "+c2.getAñoEntrada()+" "+c2.getDiaSalida()+" "+c2.getMesSalida()+" "+c2.getAñoSalida()+""+c2.getNombreCli()+""+c2.getPrecio()+"\n");
+            }
+        } 
+    }//GEN-LAST:event_jButtonVerActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+dispose();        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -398,12 +429,13 @@ public class Reservacion extends javax.swing.JFrame {
     private javax.swing.JTextField JTxtFNombreCliente;
     private javax.swing.JTextField JTxtFNumHabitacion;
     private javax.swing.JTextField JTxtFPrecio;
+    private javax.swing.JTextArea Reporte;
     private javax.swing.JButton btAgregra;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButtonVer;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -415,6 +447,5 @@ public class Reservacion extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     // End of variables declaration//GEN-END:variables
 }

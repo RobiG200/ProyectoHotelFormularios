@@ -17,8 +17,8 @@ public class Inicio extends javax.swing.JFrame {
  Vector <ClaseFactura> ArregloFactura=new Vector<>();
  Vector <ClaseDetalleFactura> ArregloDetalle=new Vector<>();
  Vector <ClaseProveedor> ArregloProveedor=new Vector<>();
- Vector <VectorConsulta>ConsultaVector;
- Vector <ClaseReservacion>Reservaciones;
+ Vector <VectorConsulta>ConsultaVector=new Vector<>();
+ Vector <ClaseReservacion>Reservaciones=new Vector<>();
 
 
     /**
@@ -31,6 +31,8 @@ public class Inicio extends javax.swing.JFrame {
         ArregloFactura=new  Vector<ClaseFactura>();
         ArregloDetalle=new  Vector<ClaseDetalleFactura>();
         ArregloProveedor=new  Vector<ClaseProveedor>();
+        ConsultaVector=new Vector<VectorConsulta>();
+        Reservaciones=new Vector<ClaseReservacion>();
         initComponents();
 
     }
@@ -227,7 +229,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_RegistroHabitacionActionPerformed
 
     private void FacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FacturacionActionPerformed
-         Factura Factura1= new Factura(ArregloFactura,ArregloDetalle,ArregloProducto,ArregloEmpleado,ArregloCliente);
+         Factura Factura1= new Factura(ArregloFactura,ArregloDetalle,ArregloProducto,ArregloEmpleado,ArregloCliente,Reservaciones);
         Factura1.setVisible(true);  
     }//GEN-LAST:event_FacturacionActionPerformed
 

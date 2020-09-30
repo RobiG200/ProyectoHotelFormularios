@@ -1,5 +1,6 @@
 com\mycompany\proyectohotel\Factura.class
 com\mycompany\proyectohotel\main.class
+com\mycompany\proyectohotel\Reservacion$5.class
 com\mycompany\proyectohotel\Cliente$4.class
 com\mycompany\proyectohotel\Inicio.class
 com\mycompany\proyectohotel\Proveedor$4.class
@@ -18,12 +19,14 @@ com\mycompany\proyectohotel\ClaseEmpleado.class
 com\mycompany\proyectohotel\Empleado$7.class
 com\mycompany\proyectohotel\Factura$3.class
 com\mycompany\proyectohotel\Proveedor$3.class
+com\mycompany\proyectohotel\Inicio$9.class
 com\mycompany\proyectohotel\Producto$2.class
 com\mycompany\proyectohotel\Cliente$5.class
 com\mycompany\proyectohotel\Reporte$2.class
 com\mycompany\proyectohotel\ClaseHabitacion.class
 com\mycompany\proyectohotel\Inicio$6.class
 com\mycompany\proyectohotel\Producto$9.class
+com\mycompany\proyectohotel\Reservacion$6.class
 com\mycompany\proyectohotel\Reservacion.class
 com\mycompany\proyectohotel\Producto$5.class
 com\mycompany\proyectohotel\Producto.class

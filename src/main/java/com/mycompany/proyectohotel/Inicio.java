@@ -42,6 +42,10 @@ public class Inicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu2 = new javax.swing.JMenu();
         RegistroEmpleado = new javax.swing.JMenuItem();
@@ -60,6 +64,15 @@ public class Inicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 48)); // NOI18N
+        jLabel1.setText("\"BIG FOOT\"");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 3, 48)); // NOI18N
+        jLabel2.setText("HOTEL");
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/proyectohotel/icono-del-hotel-aislado-en-el-fondo-blanco-83333244.jpg"))); // NOI18N
+
+        jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/proyectohotel/EMPLEADO.png"))); // NOI18N
         jMenu2.setText("Empleado");
 
         RegistroEmpleado.setText("Registrar Empleado");
@@ -72,6 +85,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/proyectohotel/CLIENTE (1).gif"))); // NOI18N
         jMenu3.setText("Cliente");
 
         RegistroCliente.setText("Registrar Clientes");
@@ -84,6 +98,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu3);
 
+        jMenu4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/proyectohotel/PROVEEDOR.jpg"))); // NOI18N
         jMenu4.setText("Proveedor");
 
         RegistroProveedor.setText("Registrar Proveedor");
@@ -108,6 +123,7 @@ public class Inicio extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu5);
 
+        Factura.setIcon(new javax.swing.ImageIcon(getClass().getResource("/com/mycompany/proyectohotel/factura.png"))); // NOI18N
         Factura.setText("Factura");
 
         Facturacion.setText("Facturacion");
@@ -150,11 +166,36 @@ public class Inicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 462, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(49, 49, 49)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(80, 80, 80)
+                        .addComponent(jLabel2)))
+                .addContainerGap(51, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 280, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(71, 71, 71)
+                .addComponent(jLabel3)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel4)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(80, 80, 80)))
+                .addGap(50, 50, 50))
         );
 
         pack();
@@ -239,6 +280,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem RegistroHabitacion;
     private javax.swing.JMenuItem RegistroProveedor;
     private javax.swing.JMenuItem Reportes;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;

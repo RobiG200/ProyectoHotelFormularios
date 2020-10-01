@@ -17,14 +17,18 @@ public class Reporte extends javax.swing.JFrame {
 Vector <ClaseCliente>ArregloCliente;
 Vector <ClaseProveedor>ArregloProveedor;
 Vector <ClaseProducto>ArregloProducto;
+Vector <ClaseEmpleado>ArregloEmpleado;
+Vector <ClaseReservacion>Reservaciones;
     /**
      * Creates new form Reportes
      */
-    public Reporte(Vector <ClaseCliente>a,Vector <ClaseProveedor>p,Vector <ClaseProducto>pro ) {
+    public Reporte(Vector <ClaseCliente>a,Vector <ClaseProveedor>p,Vector <ClaseProducto>pro, Vector <ClaseEmpleado>emp, Vector <ClaseReservacion>reser) {
         initComponents();
         ArregloCliente=a;
         ArregloProveedor=p;
         ArregloProducto=pro;
+        ArregloEmpleado=emp;
+        Reservaciones=reser;
     }
 
     /**
@@ -44,8 +48,8 @@ Vector <ClaseProducto>ArregloProducto;
         btCerrar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         ReporteProveedores = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
         btInventarioProducto = new javax.swing.JButton();
+        jButtonVer = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,6 +61,11 @@ Vector <ClaseProducto>ArregloProducto;
         });
 
         ReporteEmpleado.setText("Reporte de empleado");
+        ReporteEmpleado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ReporteEmpleadoActionPerformed(evt);
+            }
+        });
 
         ReporteFactura.setText("Historial de Factura");
 
@@ -71,7 +80,8 @@ Vector <ClaseProducto>ArregloProducto;
             }
         });
 
-        jLabel1.setText("Reportes");
+        jLabel1.setFont(new java.awt.Font("Tahoma", 3, 48)); // NOI18N
+        jLabel1.setText("Reportes:");
 
         ReporteProveedores.setText("Reporte de proveedores ");
         ReporteProveedores.addActionListener(new java.awt.event.ActionListener() {
@@ -80,8 +90,6 @@ Vector <ClaseProducto>ArregloProducto;
             }
         });
 
-        jLabel2.setText("jLabel2");
-
         btInventarioProducto.setText("Inventario de Productos");
         btInventarioProducto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -89,61 +97,64 @@ Vector <ClaseProducto>ArregloProducto;
             }
         });
 
+        jButtonVer.setText("Reporte Reservas");
+        jButtonVer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonVerActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btCerrar)
+                .addGap(51, 51, 51))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(42, 42, 42)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(ReporteFactura)
-                            .addComponent(ReporteEmpleado)
-                            .addComponent(btReporteCliente)
-                            .addComponent(ReporteProveedores)
-                            .addComponent(btInventarioProducto))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addGap(87, 87, 87)))
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 272, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(19, 19, 19))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(btCerrar)
-                        .addGap(51, 51, 51))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addGap(128, 128, 128))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(ReporteProveedores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ReporteEmpleado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btReporteCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btInventarioProducto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(ReporteFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButtonVer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
-                .addComponent(btReporteCliente)
-                .addGap(32, 32, 32)
-                .addComponent(ReporteEmpleado)
-                .addGap(30, 30, 30)
-                .addComponent(ReporteProveedores)
-                .addGap(18, 18, 18)
-                .addComponent(btInventarioProducto)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(ReporteFactura)
-                .addGap(29, 29, 29)
-                .addComponent(jLabel2)
-                .addGap(69, 69, 69))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 11, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btCerrar)
-                .addGap(7, 7, 7))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(btReporteCliente)
+                        .addGap(33, 33, 33)
+                        .addComponent(ReporteEmpleado)
+                        .addGap(18, 18, 18)
+                        .addComponent(ReporteProveedores)
+                        .addGap(18, 18, 18)
+                        .addComponent(btInventarioProducto)
+                        .addGap(27, 27, 27)
+                        .addComponent(jButtonVer)
+                        .addGap(18, 18, 18)
+                        .addComponent(ReporteFactura)
+                        .addGap(82, 82, 82))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 313, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btCerrar)
+                        .addGap(7, 7, 7))))
         );
 
         pack();
@@ -159,7 +170,7 @@ Vector <ClaseProducto>ArregloProducto;
             while(itr.hasNext())
             {
                 c2=itr.next();
-                Reporte.append(c2.getNombre()+" "+c2.getApellido()+" "+c2.getNit()+" "+c2.getDpi()+" "+c2.getEdad()+" "+c2.getDireccion()+" "+c2.getTelefono()+" "+c2.getCorreo()+"\n");
+                Reporte.append("Nombre: "+c2.getNombre()+"\n Apellido: "+c2.getApellido()+"\n NIT: "+c2.getNit()+"\n DPI: "+c2.getDpi()+"\n EDAD: "+c2.getEdad()+"\n Dirección: "+c2.getDireccion()+"\n Telefono: "+c2.getTelefono()+"\n Correo: "+c2.getCorreo()+"\n\n");
             }
         }
     
@@ -181,7 +192,7 @@ Vector <ClaseProducto>ArregloProducto;
             while(itr.hasNext())
             {
                 c2=itr.next();
-                Reporte.append(c2.getNombre()+" "+c2.getDireccion()+" "+c2.getTelefono()+" "+c2.getCorreo()+"\n");
+                Reporte.append("Nit: "+c2.getNit()+"\n Nombre: "+c2.getNombre()+"\n Dirección: "+c2.getDireccion()+"\n Telefono:"+c2.getTelefono()+"\n Correo: "+c2.getCorreo()+"\n \n");
             }
         }
     }//GEN-LAST:event_ReporteProveedoresActionPerformed
@@ -195,10 +206,37 @@ Vector <ClaseProducto>ArregloProducto;
             while(itr.hasNext())
             {
                 p2=itr.next();
-                Reporte.append(p2.getCodProveedor()+" "+p2.getCodArticulo()+" "+p2.getNombre()+" "+p2.getCantidad()+" "+p2.getPrecio()+"\n");
+                Reporte.append("Codigo Proveedor: "+p2.getCodProveedor()+"\n Codigo Articulo: "+p2.getCodArticulo()+"\n Nombre: "+p2.getNombre()+"\n Cantidad: "+p2.getCantidad()+"\n Precio: "+p2.getPrecio()+"\n \n");
             }
         }
     }//GEN-LAST:event_btInventarioProductoActionPerformed
+
+    private void ReporteEmpleadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReporteEmpleadoActionPerformed
+        Reporte.setText("");
+        if(evt.getSource()==ReporteEmpleado)
+        {
+            ClaseEmpleado e2;
+            Iterator<ClaseEmpleado>itr=ArregloEmpleado.iterator();
+            while(itr.hasNext())
+            {
+                e2=itr.next();
+                Reporte.append("NIT: "+e2.getNit()+"\n Nombre: "+e2.getNombre()+"\n Dirección: "+e2.getDireccion()+"\n Telefono: "+e2.getTelefono()+"\n Correo: "+e2.getCorreo()+"\n \n");
+            }
+        }
+    }//GEN-LAST:event_ReporteEmpleadoActionPerformed
+
+    private void jButtonVerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonVerActionPerformed
+        if(evt.getSource()==jButtonVer)
+        {
+            ClaseReservacion c2;
+            Iterator<ClaseReservacion>itr=Reservaciones.iterator();
+            while(itr.hasNext())
+            {
+                c2=itr.next();
+                Reporte.append("No. Reserva: "+c2.getNoReservacion()+"\n Numero de Habitación: "+c2.getNumeroHabitacion()+"\n Fecha de ingreso: "+c2.getDiaIngreso()+"/"+c2.getMesEntrada()+"/"+c2.getAñoEntrada()+"\n Fecha Salida: "+c2.getDiaSalida()+"/"+c2.getMesSalida()+"/"+c2.getAñoSalida()+"\n Nombre Cliente: "+c2.getNombreCli()+"\n Precio: "+c2.getPrecio()+"\n");
+            }
+        } 
+    }//GEN-LAST:event_jButtonVerActionPerformed
 
     /**
      * @param args the command line arguments
@@ -212,8 +250,8 @@ Vector <ClaseProducto>ArregloProducto;
     private javax.swing.JButton btCerrar;
     private javax.swing.JButton btInventarioProducto;
     private javax.swing.JButton btReporteCliente;
+    private javax.swing.JButton jButtonVer;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
 }

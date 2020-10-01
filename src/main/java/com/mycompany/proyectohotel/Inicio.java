@@ -56,8 +56,6 @@ public class Inicio extends javax.swing.JFrame {
         RegistroCliente = new javax.swing.JMenuItem();
         jMenu4 = new javax.swing.JMenu();
         RegistroProveedor = new javax.swing.JMenuItem();
-        jMenu5 = new javax.swing.JMenu();
-        RegistroHabitacion = new javax.swing.JMenuItem();
         Factura = new javax.swing.JMenu();
         Facturacion = new javax.swing.JMenuItem();
         jMenu7 = new javax.swing.JMenu();
@@ -111,18 +109,6 @@ public class Inicio extends javax.swing.JFrame {
         jMenu4.add(RegistroProveedor);
 
         jMenuBar1.add(jMenu4);
-
-        jMenu5.setText("Habitacion");
-
-        RegistroHabitacion.setText("Registrar Habitacion");
-        RegistroHabitacion.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                RegistroHabitacionActionPerformed(evt);
-            }
-        });
-        jMenu5.add(RegistroHabitacion);
-
-        jMenuBar1.add(jMenu5);
 
         Factura.setText("Factura");
 
@@ -180,29 +166,30 @@ public class Inicio extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(49, 49, 49)
-                .addComponent(jLabel3)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(312, 312, 312)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(49, 49, 49)
+                        .addComponent(jLabel3)
+                        .addGap(77, 77, 77)
+                        .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(386, 386, 386)
-                        .addComponent(jLabel2)))
-                .addContainerGap(51, Short.MAX_VALUE))
+                        .addGap(57, 57, 57)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(101, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(71, 71, 71)
-                .addComponent(jLabel3)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(106, Short.MAX_VALUE)
-                .addComponent(jLabel2)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addComponent(jLabel3))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel2)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(130, 130, 130))
+                .addContainerGap(81, Short.MAX_VALUE))
         );
 
         pack();
@@ -223,18 +210,13 @@ public class Inicio extends javax.swing.JFrame {
         Proveedor1.setVisible(true);
     }//GEN-LAST:event_RegistroProveedorActionPerformed
 
-    private void RegistroHabitacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RegistroHabitacionActionPerformed
-        Habitacion Habitacion1= new Habitacion();
-        Habitacion1.setVisible(true);
-    }//GEN-LAST:event_RegistroHabitacionActionPerformed
-
     private void FacturacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FacturacionActionPerformed
          Factura Factura1= new Factura(ArregloFactura,ArregloDetalle,ArregloProducto,ArregloEmpleado,ArregloCliente,Reservaciones);
         Factura1.setVisible(true);  
     }//GEN-LAST:event_FacturacionActionPerformed
 
     private void ReportesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReportesActionPerformed
-        Reporte Reporte1=new Reporte(ArregloCliente,ArregloProveedor,ArregloProducto);
+        Reporte Reporte1=new Reporte(ArregloCliente,ArregloProveedor,ArregloProducto,ArregloEmpleado,Reservaciones);
         Reporte1.setVisible(true);
     }//GEN-LAST:event_ReportesActionPerformed
 
@@ -244,7 +226,7 @@ public class Inicio extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jMenuItemReservacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItemReservacionActionPerformed
-        Reservacion Reservacion1=new Reservacion(ConsultaVector,Reservaciones);
+        Reservacion Reservacion1=new Reservacion(ConsultaVector,Reservaciones,ArregloCliente);
         Reservacion1.setVisible(true);
     }//GEN-LAST:event_jMenuItemReservacionActionPerformed
 
@@ -289,7 +271,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenu MenuProducto;
     private javax.swing.JMenuItem RegistroCliente;
     private javax.swing.JMenuItem RegistroEmpleado;
-    private javax.swing.JMenuItem RegistroHabitacion;
     private javax.swing.JMenuItem RegistroProveedor;
     private javax.swing.JMenuItem Reportes;
     private javax.swing.JLabel jLabel1;
@@ -299,7 +280,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenu jMenu4;
-    private javax.swing.JMenu jMenu5;
     private javax.swing.JMenu jMenu6;
     private javax.swing.JMenu jMenu7;
     private javax.swing.JMenuBar jMenuBar1;

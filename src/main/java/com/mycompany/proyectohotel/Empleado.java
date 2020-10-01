@@ -243,7 +243,7 @@ dispose();        // TODO add your handling code here:
         {
             ClaseEmpleado c=BuscarEmpleado(rfNit.getText());
             if (c!=null)
-                Reporte.setText(c.getNit()+" "+c.getNombre()+" "+c.getDireccion()+" "+c.getTelefono()+" "+c.getCorreo()+"\n");
+                Reporte.setText("NIT: "+c.getNit()+"\n Nombre: "+c.getNombre()+"\n Dirección: "+c.getDireccion()+"\n Telefono: "+c.getTelefono()+"\n Correo: "+c.getCorreo()+"\n");
             
             
             
@@ -325,7 +325,7 @@ dispose();        // TODO add your handling code here:
             while(itr.hasNext())
             {
                 e2=itr.next();
-                Reporte.append(e2.getNit()+" "+e2.getNombre()+" "+e2.getDireccion()+" "+e2.getTelefono()+" "+e2.getCorreo()+"\n");
+                Reporte.append("NIT: "+e2.getNit()+"\n Nombre: "+e2.getNombre()+"\n Dirección: "+e2.getDireccion()+"\n Telefono: "+e2.getTelefono()+"\n Correo: "+e2.getCorreo()+"\n \n");
             }
         }
     }   
@@ -400,7 +400,7 @@ dispose();        // TODO add your handling code here:
                      while(itr1.hasNext())
                      {
                          emp3=itr1.next();
-                         Reporte.append(emp3.getNit()+" "+emp3.getNombre()+" "+emp3.getDireccion()+" "+emp3.getTelefono()+" "+emp3.getCorreo()+"\n");
+                         Reporte.append("NIT: "+emp3.getNit()+"\n Nombre: "+emp3.getNombre()+"\n Dirección: "+emp3.getDireccion()+"\n Telefono: "+emp3.getTelefono()+"\n Correo: "+emp3.getCorreo()+"\n");
                      }
                    }
                }

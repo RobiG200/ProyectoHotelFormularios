@@ -346,7 +346,7 @@ Vector <ClaseProveedor>ArregloProveedor;
             while(itr.hasNext())
             {
                 p2=itr.next();
-                Reporte.append(p2.getCodProveedor()+" "+p2.getCodArticulo()+" "+p2.getNombre()+" "+p2.getCantidad()+" "+p2.getPrecio()+"\n");
+                Reporte.append("Codigo Proveedor: "+p2.getCodProveedor()+"\n Codigo Articulo: "+p2.getCodArticulo()+"\n Nombre: "+p2.getNombre()+"\n Cantidad: "+p2.getCantidad()+"\n Precio: "+p2.getPrecio()+"\n \n");
             }
         }
     }//GEN-LAST:event_jButtonVerActionPerformed
@@ -356,7 +356,7 @@ Vector <ClaseProveedor>ArregloProveedor;
         {
             ClaseProducto p=BuscarProducto(tfCodProd.getText());
             if (p!=null)
-                Reporte.setText(p.getCodProveedor()+" "+p.getCodArticulo()+" "+p.getNombre()+" "+p.getCantidad()+" "+p.getPrecio()+"\n");
+                Reporte.setText("Codigo Proveedor: "+p.getCodProveedor()+"\n Codigo Articulo: "+p.getCodArticulo()+"\n Nombre: "+p.getNombre()+"\n Cantidad: "+p.getCantidad()+"\n Precio: "+p.getPrecio()+"\n");
             
             
             
@@ -412,7 +412,7 @@ Vector <ClaseProveedor>ArregloProveedor;
                      while(itr1.hasNext())
                      {
                          pro3=itr1.next();
-                         Reporte.append(pro3.getCodProveedor()+" "+pro3.getCodArticulo()+" "+pro3.getNombre()+" "+pro3.getCantidad()+" "+pro3.getPrecio()+"\n");
+                         Reporte.append("Codigo Proveedor: "+pro3.getCodProveedor()+"\n Codigo Articulo: "+pro3.getCodArticulo()+"\n Nombre: "+pro3.getNombre()+"\n Cantidad: "+pro3.getCantidad()+"\n Precio: "+pro3.getPrecio()+"\n");
                      }
                    }
                }

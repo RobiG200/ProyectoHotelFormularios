@@ -16,13 +16,15 @@ import javax.swing.JOptionPane;
 public class Reservacion extends javax.swing.JFrame {
    Vector <VectorConsulta>ConsultaVector;
    Vector <ClaseReservacion>Reservaciones;
+   Vector <ClaseCliente>ArregloCliente;
     /**
      * Creates new form Reservacion
      */
-    public Reservacion(Vector <VectorConsulta>a,Vector <ClaseReservacion>b) {
+    public Reservacion(Vector <VectorConsulta>a,Vector <ClaseReservacion>b,Vector <ClaseCliente>ac) {
         initComponents();
         ConsultaVector=a;
         Reservaciones=b;
+        ArregloCliente=ac;
     }
 
     /**
@@ -56,8 +58,8 @@ public class Reservacion extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        BtEliminar = new javax.swing.JButton();
+        BtBuscar = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButtonVer = new javax.swing.JButton();
         jLabel10 = new javax.swing.JLabel();
@@ -114,11 +116,26 @@ public class Reservacion extends javax.swing.JFrame {
 
         jLabel9.setText("Año:");
 
-        jButton3.setText("Eliminar");
+        BtEliminar.setText("Eliminar");
+        BtEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtEliminarActionPerformed(evt);
+            }
+        });
 
-        jButton4.setText("Buscar");
+        BtBuscar.setText("Buscar");
+        BtBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtBuscarActionPerformed(evt);
+            }
+        });
 
         jButton5.setText("Modificar");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         jButtonVer.setText("Ver datos");
         jButtonVer.addActionListener(new java.awt.event.ActionListener() {
@@ -180,14 +197,14 @@ public class Reservacion extends javax.swing.JFrame {
                         .addGap(1, 1, 1)
                         .addComponent(jButtonVer)
                         .addGap(28, 28, 28)
-                        .addComponent(jButton4)))
+                        .addComponent(BtBuscar)))
                 .addGap(32, 32, 32)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 270, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 11, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jButton3)
+                        .addComponent(BtEliminar)
                         .addGap(36, 36, 36)
                         .addComponent(jButton5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -245,8 +262,8 @@ public class Reservacion extends javax.swing.JFrame {
                     .addComponent(btAgregra)
                     .addComponent(jButton2)
                     .addComponent(jButtonVer)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4)
+                    .addComponent(BtEliminar)
+                    .addComponent(BtBuscar)
                     .addComponent(jButton5))
                 .addGap(89, 89, 89))
         );
@@ -338,7 +355,16 @@ public class Reservacion extends javax.swing.JFrame {
                      int PrecioR=Integer.parseInt(JTxtFPrecio.getText());
                      emp.setPrecio(PrecioR);
                      Reservaciones.add(emp);
-                      
+                     JTxtFNoReservacion.setText("");
+                     JTxtFNumHabitacion.setText("");
+                     JTxtFDiaI.setText("");
+                     JTxtFDiaS.setText("");
+                     JTxtFMesI.setText("");
+                     JTxtFMesS.setText("");
+                     JTxtFAñoI.setText("");
+                     JTxtFAñoS.setText("");
+                     JTxtFNombreCliente.setText("");  
+                     JTxtFPrecio.setText("");
                      Reporte.setText("");
          
      }
@@ -355,12 +381,17 @@ public class Reservacion extends javax.swing.JFrame {
         Integer cont1=0;
         Integer cont2=0;
         VectorConsulta co=null;
-        if(buscarReserva()== 0)
-        {
-           IngresarReserva();
-        }           
+      
+        if(buscarReserva()== 0) 
+        { 
+            
+              IngresarReserva();
+        }
+  
         else
-        {          
+        {
+            if(buscarCliente(JTxtFNombreCliente.getText())== true)
+            {
             ClaseReservacion c4;
             Iterator<ClaseReservacion>itr=Reservaciones.iterator();
             while(itr.hasNext())
@@ -394,7 +425,15 @@ public class Reservacion extends javax.swing.JFrame {
             {
                 JOptionPane.showMessageDialog(null, "Habitacion Reservada");
             }
+            }
+            else
            
+           {
+               JOptionPane.showMessageDialog(null, "El Nombre del Cliente no existe");
+               JTxtFNombreCliente.setText("");
+           }
+            
+ 
         }
          ConsultaVector.removeAllElements(); 
     }//GEN-LAST:event_btAgregraActionPerformed
@@ -408,7 +447,7 @@ public class Reservacion extends javax.swing.JFrame {
             while(itr.hasNext())
             {
                 c2=itr.next();
-                Reporte.append(c2.getNoReservacion()+" "+c2.getNumeroHabitacion()+" "+c2.getDiaIngreso()+" "+c2.getMesEntrada()+" "+c2.getAñoEntrada()+" "+c2.getDiaSalida()+" "+c2.getMesSalida()+" "+c2.getAñoSalida()+""+c2.getNombreCli()+""+c2.getPrecio()+"\n");
+                Reporte.append("No. Reserva: "+c2.getNoReservacion()+"\n Numero de Habitación: "+c2.getNumeroHabitacion()+"\n Fecha de ingreso: "+c2.getDiaIngreso()+"/"+c2.getMesEntrada()+"/"+c2.getAñoEntrada()+"\n Fecha Salida: "+c2.getDiaSalida()+"/"+c2.getMesSalida()+"/"+c2.getAñoSalida()+"\n Nombre Cliente: "+c2.getNombreCli()+"\n Precio: "+c2.getPrecio()+"\n");
             }
         } 
     }//GEN-LAST:event_jButtonVerActionPerformed
@@ -416,9 +455,148 @@ public class Reservacion extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
 dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+        private boolean buscarReserv(String n){
+        boolean encontrado = false;
+        ClaseReservacion res3;
+        Iterator<ClaseReservacion>itr=Reservaciones.iterator();
+        while(itr.hasNext())
+        {
+            res3=itr.next();
+            
+            if (n.compareTo(res3.getNoReservacion())==0)
+            {
+                encontrado=true;
+            }
+        }
+        return encontrado;
+    }
+    
+     private ClaseReservacion BuscarReserva(String c)
+   {
+       ClaseReservacion re2;
+       Iterator<ClaseReservacion>itr=Reservaciones.iterator();
+       while (itr.hasNext())
+       {
+           re2=itr.next();
+           
+           if(JTxtFNoReservacion.getText().equals(re2.getNoReservacion()))
+           {
+               return re2;
+           }
+       }
+       return null;
+   }
+     
+    private void BtEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtEliminarActionPerformed
+        if(evt.getSource()==BtEliminar)
+       {
+           ClaseReservacion res=BuscarReserva(JTxtFNoReservacion.getText());
+           if (res!=null)
+               if(Reservaciones.contains(res))
+               {
+                   Reservaciones.remove(res);
+                   JTxtFNoReservacion.setText(" ");
+                   JTxtFNumHabitacion.setText("");
+                   JTxtFDiaI.setText("");
+                   JTxtFMesI.setText("");
+                   JTxtFAñoI.setText("");
+                   JTxtFDiaS.setText("");
+                   JTxtFMesS.setText("");
+                   JTxtFAñoS.setText("");
+                   JTxtFNombreCliente.setText("");
+                   JTxtFPrecio.setText("");
+                   JTxtFNoReservacion.requestFocus();
+               }
+       }
+    }//GEN-LAST:event_BtEliminarActionPerformed
+
+    private void BtBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtBuscarActionPerformed
+      if (evt.getSource()==BtBuscar)
+        {
+            ClaseReservacion r=BuscarReserva(JTxtFNoReservacion.getText());
+            if (r!=null)
+                Reporte.setText("No. Reserva:  "+r.getNoReservacion()+"\n Numero de Habitación: "+r.getNumeroHabitacion()+"\n Fecha de ingreso:  "+r.getDiaIngreso()+"/"+r.getMesEntrada()+"/"+r.getAñoEntrada()+"\n Fecha Salida: "+r.getDiaSalida()+"/"+r.getMesSalida()+"/"+r.getAñoSalida()+"\n Nombre Cliente: "+r.getNombreCli()+"\n Precio: "+r.getPrecio()+"\n");
+            
+            
+            
+//JOptionPane.showMessageDialog(null, "El campo de nit esta vacio");
+        }
+    }//GEN-LAST:event_BtBuscarActionPerformed
+
+     private boolean buscarCliente(String n){
+        boolean encontrado = false;
+        ClaseCliente pro3;
+        Iterator<ClaseCliente>itr=ArregloCliente.iterator();
+        while(itr.hasNext())
+        {
+            pro3=itr.next();
+            if (n.compareTo(pro3.getNombre())==0)
+            {
+                encontrado=true;
+            }
+        }
+        return encontrado;
+    }
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+       if (JTxtFNoReservacion.getText().isEmpty())
+       {
+           JOptionPane.showMessageDialog(null, "Ingrese un Código");
+       }
+       else
+       {
+           
+           if(buscarReserv(JTxtFNoReservacion.getText())==true)
+           {
+               ClaseReservacion res4;
+               Integer count=0;
+               Iterator<ClaseReservacion>itr=Reservaciones.iterator();
+               while(itr.hasNext())
+               {
+                   count++;
+                   res4=itr.next();
+                   if(JTxtFNoReservacion.getText().compareTo(res4.getNoReservacion())==0)
+                   {
+                     res4.setNoReserva(JTxtFNoReservacion.getText());
+                     res4.setNoHabitacion(JTxtFNumHabitacion.getText());
+                     int DiaI=Integer.parseInt(JTxtFDiaI.getText());
+                     res4.setDiaEntrada(DiaI);
+                     int MesI=Integer.parseInt(JTxtFMesI.getText());
+                     res4.setMesEntrada(MesI);
+                     int AñoI=Integer.parseInt(JTxtFAñoI.getText());
+                     res4.setAñoEntrada(AñoI);
+                     int DiaS=Integer.parseInt(JTxtFDiaS.getText());
+                     res4.setDiaSalida(DiaS);
+                     int MesS=Integer.parseInt(JTxtFMesS.getText());
+                     res4.setMesSalida(MesS);
+                     int AñoS=Integer.parseInt(JTxtFAñoS.getText());
+                     res4.setAñoSalida(AñoS);
+                     res4.setNombreCli(JTxtFNombreCliente.getText());
+                     int PrecioR=Integer.parseInt(JTxtFPrecio.getText());
+                     res4.setPrecio(PrecioR);
+                     Reporte.setText("");
+                     ClaseReservacion res3;
+                     Iterator<ClaseReservacion>itr1=Reservaciones.iterator();
+                     while(itr1.hasNext())
+                     {
+                         res3=itr1.next();
+                         Reporte.append("No. Reserva: "+res3.getNoReservacion()+"\n Numero de Habitación: "+res3.getNumeroHabitacion()+"\n Fecha de ingreso: "+res3.getDiaIngreso()+"/"+res3.getMesEntrada()+"/"+res3.getAñoEntrada()+"\n Fecha Salida: "+res3.getDiaSalida()+"/"+res3.getMesSalida()+"/"+res3.getAñoSalida()+"\n Nombre Cliente: "+res3.getNombreCli()+"\n Precio: "+res3.getPrecio()+"\n");
+                     }
+                   }
+               }
+           }
+           else
+           {
+               JOptionPane.showMessageDialog(null, "Nit no existe");
+           }
+           
+           
+       }
+    }//GEN-LAST:event_jButton5ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BtBuscar;
+    private javax.swing.JButton BtEliminar;
     private javax.swing.JTextField JTxtFAñoI;
     private javax.swing.JTextField JTxtFAñoS;
     private javax.swing.JTextField JTxtFDiaI;
@@ -432,8 +610,6 @@ dispose();        // TODO add your handling code here:
     private javax.swing.JTextArea Reporte;
     private javax.swing.JButton btAgregra;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButtonVer;
     private javax.swing.JLabel jLabel1;

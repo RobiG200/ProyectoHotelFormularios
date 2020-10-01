@@ -68,7 +68,7 @@
                               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="Cancelar" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="jButtonVer" alignment="1" pref="175" max="32767" attributes="0"/>
+                                  <Component id="jButtonVer" alignment="1" pref="201" max="32767" attributes="0"/>
                                   <Component id="BtEliminar" alignment="1" max="32767" attributes="0"/>
                               </Group>
                           </Group>
@@ -125,10 +125,9 @@
                       <Component id="tfTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="0" pref="34" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="68" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="rfApellido" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -265,9 +264,6 @@
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
-        </Property>
-        <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/com/mycompany/proyectohotel/guardar.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Guardar"/>
       </Properties>
